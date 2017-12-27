@@ -1,0 +1,2 @@
+class BitcoincashBitcoin < ApplicationRecord
+end
