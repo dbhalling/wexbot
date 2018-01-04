@@ -51,8 +51,9 @@ namespace :wex do
           
         end  
         puts "The loop just executed"
-        puts BitcoincashBitcoin.last.buy
-        sleep 10
+        puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
+        puts ""
+        sleep(10.minutes) 
       end
     
   end 
