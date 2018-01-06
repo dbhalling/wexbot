@@ -1,0 +1,11 @@
+<h1>Back Test Trades  </h1>
+
+  <% @bch_btc_trade.each do |trade| %>
+
+        <p>Last <%= trade.last %>
+        Buy <%= trade.buy %>
+        Sell <%= trade.sell %></p
+        <p><%= trade.created_at %></p>
+        <p></p>
+        <br>
+  <% end %>

@@ -47,13 +47,13 @@ namespace :wex do
             x.buy = @buy_bch_btc
             x.sell = @sell_bch_btc
           end
-          
+          BitcoincashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
           
         end  
         puts "The loop just executed"
         puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
         puts ""
-        sleep(10.minutes) 
+        sleep(5.minutes) 
       end
     
   end 

@@ -1,9 +1,7 @@
-namespace :trade do
-  desc "excutes trade logic"
-  task rails: :environment do
-    
-    
-    @bch_btc_trade = BitcoincashBitcoin.all
+module BacktradeHelper
+end
+
+@bch_btc_trade = BitcoincashBitcoin.all
     
     count = @bch_btc_trade.count
     
@@ -93,5 +91,6 @@ namespace :trade do
     
     puts "Count is #{count}"
     
- end   
-end
+ 
+
+
