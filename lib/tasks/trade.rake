@@ -9,10 +9,10 @@ namespace :trade do
     
     puts "Count is #{count}"
     
-   # @bch_btc_trade.each_with_index do |item, index| 
+    # @bch_btc_trade.each_with_index do |item, index| 
     #  if (index %2 == 0) then 
-     #   @bch_btc_trade_tene.push(item) 
-      #end
+    #   @bch_btc_trade_tene.push(item) 
+    #end
     #end
     
     
@@ -34,7 +34,6 @@ namespace :trade do
     #This is the initial position - one bitcoin
     unit = 1.0
     crypto = "Bitcoin"
-    
     target = @last
     
     @bch_btc_trade.each do |i|
@@ -46,15 +45,15 @@ namespace :trade do
       when "Bitcoin"
         puts "In Bitcoin loop"
         
-#The price is how many bitcoins will you give up or recieve
-#As a result, while we are buying BCH we want the target to be based on what we can sell it for.
-      #This logic determines whether to trade BTC for BCH
+        #The price is how many bitcoins will you give up or recieve
+        #As a result, while we are buying BCH we want the target to be based on what we can sell it for.
+        #This logic determines whether to trade BTC for BCH
         if i.sell >= (1.025 * target)
           puts "buy bch"
           unit = ((unit/i.buy) * 0.998)
           crypto = "BitcoinCash"
 
-#This logic adjusts the target if BTC has gained value compared to BCH 
+        #This logic adjusts the target if BTC has gained value compared to BCH 
         elsif i.sell < target
           puts "adjust target"
           target = ((0.5 * target) + (0.5 * i.sell))
@@ -65,7 +64,7 @@ namespace :trade do
       when "BitcoinCash"
         puts "in Bitcoin Cash loop"
   
-  # This logic determine whether to trade BCH for BTC
+        # This logic determine whether to trade BCH for BTC
         if i.buy <= (0.997 * target)
           puts "buy btc"
           unit = ((unit * i.sell) * 0.998)
