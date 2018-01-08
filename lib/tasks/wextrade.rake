@@ -64,13 +64,23 @@ namespace :wextrade do
           puts "the new target is #{target}"
           puts "Your bitcoin equivalent position is  #{@last_bch_btc * unit}"
         else
-          puts "Your bitcoin equivalent position is #{@last_bch_btc * unit}"
+          btce = @last_bch_btc * unit
+          puts "Your bitcoin equivalent position is #{btce}"
         end
       end  
       puts "The loop just executed"
       puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
       puts ""
       puts "Your position is #{unit} units of #{crypto}"
+      
+      
+      TradeDatum.create do |x|
+        x.crypto = crypto
+        x.units = unit
+        x.target = target
+        x.btc_equivalent = btce
+        x.last = @last_bch_btc
+      end
       # puts the price data in the database
       BitcoincashBitcoin.create do |x|
         x.last = @last_bch_btc

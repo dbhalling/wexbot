@@ -1,0 +1,2 @@
+class TradeDatum < ApplicationRecord
+end
