@@ -1,6 +1,7 @@
 namespace :wextrade do
   desc "Obtain price and trade"
   task rails: :environment do
+    require 'net/http'
     
     def exchange (c)
       url = "https://wex.nz/api/3/ticker/#{c}"
@@ -16,11 +17,11 @@ namespace :wextrade do
       
     unit = 1.0
     crypto = "Bitcoin"
-    target = exchange("bch_btc")[0]
+    target = TradeDatum.last.target
     crypto_pairs_array = ["bch_btc"]
     price_array = []
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -88,8 +89,8 @@ namespace :wextrade do
         x.sell = @sell_bch_btc
       end
       BitcoincashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      #sleep(1.minutes)
+    #end      
       
   end
 end 
