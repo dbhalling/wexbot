@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+TradeDatum.create do |x|
+  x.crypto = 'btc'
+  x.units = 1.1
+  x.target = 2.2
+  x.btc_equivalent = 1.1
+  x.last = 2.1
+  
+end
