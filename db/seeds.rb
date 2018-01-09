@@ -13,5 +13,12 @@ TradeDatum.create do |x|
   x.target = 2.2
   x.btc_equivalent = 1.1
   x.last = 2.1
+end
+
+BitcoincashBitcoin create do |x|
+  x.last = 1.1
+  x.buy = 2.2 
+  x.sell =  3.3
+  x.target = 1.1
   
 end
