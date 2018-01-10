@@ -16,7 +16,7 @@ namespace :wextrade do
     end
       
     #unit = 1.0
-    #crypto = "Bitcoin"
+    crypto = TradeDatum.last.crypto
     #target = TradeDatum.last.target
     crypto_pairs_array = ["bch_btc"]
     price_array = []
