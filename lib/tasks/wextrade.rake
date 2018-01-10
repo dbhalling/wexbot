@@ -15,7 +15,7 @@ namespace :wextrade do
       return last, buy, sell
     end
       
-    unit = TradeDatum.last.unit
+    unit = TradeDatum.last.units
     crypto = TradeDatum.last.crypto
     target = TradeDatum.last.target
     crypto_pairs_array = ["bch_btc"]
