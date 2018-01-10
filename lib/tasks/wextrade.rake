@@ -15,9 +15,9 @@ namespace :wextrade do
       return last, buy, sell
     end
       
-    unit = 1.0
-    crypto = "Bitcoin"
-    target = TradeDatum.last.target
+    #unit = 1.0
+    #crypto = "Bitcoin"
+    #target = TradeDatum.last.target
     crypto_pairs_array = ["bch_btc"]
     price_array = []
 
@@ -73,6 +73,7 @@ namespace :wextrade do
       puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
       puts ""
       puts "Your position is #{unit} units of #{crypto}"
+      btce = @last_bch_btc * unit
       
       
       TradeDatum.create do |x|

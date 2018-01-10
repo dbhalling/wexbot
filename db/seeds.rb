@@ -9,16 +9,16 @@
 
 TradeDatum.create do |x|
   x.crypto = 'btc'
-  x.units = 1.1
-  x.target = 2.2
-  x.btc_equivalent = 1.1
-  x.last = 2.1
+  x.units = 1.0
+  x.target = 0.164
+  x.btc_equivalent = 1.0
+  x.last = 0.164
 end
 
 BitcoincashBitcoin.create do |x|
-  x.last = 1.1
-  x.buy = 2.2 
-  x.sell =  3.3
-  x.target = 1.1
+  x.last = 0.164
+  x.buy = 0.165
+  x.sell =  0.163
+  x.target = 0.164
   
 end
