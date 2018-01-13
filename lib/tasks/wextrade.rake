@@ -37,7 +37,7 @@ namespace :wextrade do
         puts "target is #{target} and last_bch_btc is #{@last_bch_btc}"
       
         #The price is how many bt whether to trade BTC for BCH
-        if @last_bch_btc >= (1.025 * target)
+        if @last_bch_btc >= (1.02 * target)
           puts "buy bch"
           unit = ((unit/@buy_bch_btc) * 0.998)
           crypto = "BitcoinCash"
@@ -46,6 +46,7 @@ namespace :wextrade do
           puts "adjust target"
           target = ((0.5 * target) + (0.5 * @sell_bch_btc))
           puts "the new target is #{target}"
+          
         else
         end
       when "BitcoinCash"
@@ -61,7 +62,7 @@ namespace :wextrade do
           
         elsif @buy_bch_btc > (target)
           puts "adjust target"
-          target = @buy_bch_btc
+          target = ((0.5 * target) +(0.5 * @buy_bch_btc))
           puts "the new target is #{target}"
           puts "Your bitcoin equivalent position is  #{@last_bch_btc * unit}"
         else
@@ -73,7 +74,11 @@ namespace :wextrade do
       puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
       puts ""
       puts "Your position is #{unit} units of #{crypto}"
-      btce = @last_bch_btc * unit
+      if crypto == "BitcoinCash"
+        btce = @last_bch_btc * unit
+      else
+        btce = unit
+      end
       
       
       TradeDatum.create do |x|
