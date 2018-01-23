@@ -22,3 +22,20 @@ BitcoincashBitcoin.create do |x|
   x.target = 0.164
   
 end
+
+
+TradeDatumHigh.create do |x|
+  x.crypto = 'btc'
+  x.units = 1.0
+  x.target = 0.164
+  x.btc_equivalent = 1.0
+  x.last = 0.164
+end
+
+TradeDatumLow.create do |x|
+  x.crypto = 'btc'
+  x.units = 1.0
+  x.target = 0.164
+  x.btc_equivalent = 1.0
+  x.last = 0.164
+end

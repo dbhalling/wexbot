@@ -1,0 +1,2 @@
+class TradeDatumHigh < ApplicationRecord
+end
