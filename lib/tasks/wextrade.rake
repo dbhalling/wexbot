@@ -21,7 +21,7 @@ namespace :wextrade do
     crypto_pairs_array = ["bch_btc"]
     price_array = []
 
-    #while true
+    while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -95,8 +95,8 @@ namespace :wextrade do
         x.sell = @sell_bch_btc
       end
       BitcoincashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      #sleep(1.minutes)
-    #end      
+      sleep(1.minutes)
+    end      
       
   end
 end 
