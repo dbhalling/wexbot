@@ -8,7 +8,7 @@
 
 
 TradeDatum.create do |x|
-  x.crypto = 'btc'
+  x.crypto = 'Bitcoin'
   x.units = 1.0
   x.target = 0.164
   x.btc_equivalent = 1.0
@@ -25,7 +25,7 @@ end
 
 
 TradeDatumHigh.create do |x|
-  x.crypto = 'btc'
+  x.crypto = 'Bitcoin'
   x.units = 1.0
   x.target = 0.164
   x.btc_equivalent = 1.0
