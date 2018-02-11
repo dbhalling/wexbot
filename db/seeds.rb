@@ -39,3 +39,20 @@ TradeDatumLow.create do |x|
   x.btc_equivalent = 1.0
   x.last = 0.164
 end
+
+
+TradeDatumE.create do |x|
+  x.crypto = 'Bitcoin'
+  x.units = 1.0
+  x.target = 0.09938
+  x.btc_equivalent = 1.0
+  x.last = 0.09938
+end
+
+EtheriumBitcoin.create do |x|
+  x.last = 0.09938
+  x.buy = 0.09938
+  x.sell =  0.09938
+  x.target = 0.09938
+  
+end

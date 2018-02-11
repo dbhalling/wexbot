@@ -1,0 +1,2 @@
+class EtheriumBitcoin < ApplicationRecord
+end
