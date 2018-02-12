@@ -1,0 +1,2 @@
+class ZcashBitcoin < ApplicationRecord
+end

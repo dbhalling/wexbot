@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210092721) do
+ActiveRecord::Schema.define(version: 20180211110553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bitcoincash_bitcoins", force: :cascade do |t|
+    t.float "last"
+    t.float "buy"
+    t.float "sell"
+    t.float "target"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dash_bitcoins", force: :cascade do |t|
     t.float "last"
     t.float "buy"
     t.float "sell"
@@ -33,7 +42,26 @@ ActiveRecord::Schema.define(version: 20180210092721) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "litecoin_bitcoins", force: :cascade do |t|
+    t.float "last"
+    t.float "buy"
+    t.float "sell"
+    t.float "target"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trade_data", force: :cascade do |t|
+    t.text "crypto"
+    t.float "units"
+    t.float "target"
+    t.float "btc_equivalent"
+    t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_datum_ds", force: :cascade do |t|
     t.text "crypto"
     t.float "units"
     t.float "target"
@@ -69,6 +97,35 @@ ActiveRecord::Schema.define(version: 20180210092721) do
     t.float "target"
     t.float "btc_equivalent"
     t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_datum_ls", force: :cascade do |t|
+    t.text "crypto"
+    t.float "units"
+    t.float "target"
+    t.float "btc_equivalent"
+    t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_datum_zs", force: :cascade do |t|
+    t.text "crypto"
+    t.float "units"
+    t.float "target"
+    t.float "btc_equivalent"
+    t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "zcash_bitcoins", force: :cascade do |t|
+    t.float "last"
+    t.float "buy"
+    t.float "sell"
+    t.float "target"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

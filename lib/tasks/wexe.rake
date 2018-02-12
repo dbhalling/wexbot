@@ -34,7 +34,7 @@ namespace :wexe do
       case crypto
       when "Bitcoin"
         puts "In Bitcoin loop"
-        puts "target is #{target} and last_bch_btc is #{@last_eth_btc}"
+        puts "target is #{target} and last_eth_btc is #{@last_eth_btc}"
       
         #The price is how many bt whether to trade BTC for ETH
         if @last_eth_btc >= (1.02 * target)
@@ -49,9 +49,9 @@ namespace :wexe do
           
         else
         end
-      when "BitcoinCash"
-        puts "in Bitcoin Cash loop"
-        # This logic determine whether to trade BCH for BTC
+      when "Etherium"
+        puts "in Etherium loop"
+        # This logic determine whether to trade ETH for BTC
         if @buy_eth_btc <= (0.99 * target)
           puts "buy btc"
           unit = ((unit * @sell_eth_btc) * 0.998)
@@ -60,7 +60,7 @@ namespace :wexe do
           puts "New target is #{target}"
           puts "New crypto is #{crypto}"
           
-        elsif @buy_bch_btc > (target)
+        elsif @buy_eth_btc > (target)
           puts "adjust target"
           target = ((0.5 * target) +(0.5 * @buy_eth_btc))
           puts "the new target is #{target}"

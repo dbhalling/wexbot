@@ -1,0 +1,2 @@
+class LitecoinBitcoin < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class DashBitcoin < ApplicationRecord
+end
