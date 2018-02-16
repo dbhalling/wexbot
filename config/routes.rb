@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   root 'backtrade#index'
   get 'backtrade/btcbchhigh', to: 'backtrade#btcbchhigh'
-  get 'backtrade/btcbchlow', to: 'backtrade#btcbchlow'
+  get 'backtrade/btcbchlow' , to: 'backtrade#btcbchlow'
+  get 'backtrade/ltc'       , to: 'backtrade#ltc'
+  get 'backtrade/dsh'       , to: 'backtrade#dsh'
+  get 'backtrade/eth'       , to: 'backtrade#eth'
+  get 'backtrade/zec'       , to: 'backtrade#zec'
 
 end

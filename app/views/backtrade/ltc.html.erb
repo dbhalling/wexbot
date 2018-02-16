@@ -1,0 +1,25 @@
+<h1>BTC LTC Litecoin </h1>
+
+  
+
+<table style="width:100%">
+  <tr>
+    <th>Time</th>
+    <th>Crypto</th>
+    <th>Units</th>
+    <th>Target</th>
+    <th>Btc Equivalent</th>
+    <th>Last</th>
+  </tr>
+  <% @trade_data.each do |t| %>
+  <tr>
+    <td><%= t.created_at %></td>
+    <td><%= t.crypto %></td>
+    <td><%= t.units %></td>
+    <td><%= t.target %></td>
+    <td><%= t.btc_equivalent unless t.btc_equivalent.nil?  %></td>
+    <td><%= t.last %></td>
+  </tr>
+  <% end %>
+  </tr>
+</table>
