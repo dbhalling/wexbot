@@ -21,7 +21,7 @@ namespace :wexz do
     crypto_pairs_array = ["zec_btc"]
     price_array = []
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -94,9 +94,10 @@ namespace :wexz do
         x.buy = @buy_zec_btc
         x.sell = @sell_zec_btc
       end
-      ZcashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      ZcashBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumZ.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      #sleep(1.minutes)
+    #end      
       
   end
 end 

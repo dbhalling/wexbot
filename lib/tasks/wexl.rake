@@ -21,7 +21,7 @@ namespace :wexl do
     crypto_pairs_array = ["ltc_btc"]
     price_array = []
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -94,9 +94,10 @@ namespace :wexl do
         x.buy = @buy_ltc_btc
         x.sell = @sell_ltc_btc
       end
-      LitecoinBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      LitecoinBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumL.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      #sleep(1.minutes)
+    #end      
       
   end
 end 

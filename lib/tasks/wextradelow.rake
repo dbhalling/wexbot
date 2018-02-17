@@ -94,7 +94,8 @@ namespace :wextradelow do
         x.buy = @buy_bch_btc
         x.sell = @sell_bch_btc
       end
-      BitcoincashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
+      BitcoincashBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumLow.where("created_at < ?", (Time.now - 4.days)).destroy_all
       #sleep(1.minutes)
     #end      
       

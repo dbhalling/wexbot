@@ -21,7 +21,7 @@ namespace :wexd do
     crypto_pairs_array = ["dsh_btc"]
     price_array = []
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -94,9 +94,10 @@ namespace :wexd do
         x.buy = @buy_dsh_btc
         x.sell = @sell_dsh_btc
       end
-      DashBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      DashBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumD.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      #sleep(1.minutes)
+    #end      
       
   end
 end

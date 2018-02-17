@@ -21,7 +21,7 @@ namespace :wexe do
     crypto_pairs_array = ["eth_btc"]
     price_array = []
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -94,9 +94,10 @@ namespace :wexe do
         x.buy = @buy_eth_btc
         x.sell = @sell_eth_btc
       end
-      EtheriumBitcoin.where("created_at < ?", (Time.now - 7.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      EtheriumBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumE.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      #sleep(1.minutes)
+    #end      
       
   end
 end 
