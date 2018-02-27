@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get 'backtrade/dsh'       , to: 'backtrade#dsh'
   get 'backtrade/eth'       , to: 'backtrade#eth'
   get 'backtrade/zec'       , to: 'backtrade#zec'
-
+  get 'backtrade/bm1'       , to: 'backtrade#bm1'
+  get 'backtrade/bm6'       , to: 'backtrade#bm6'
 end

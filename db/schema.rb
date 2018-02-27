@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211110553) do
+ActiveRecord::Schema.define(version: 20180225083817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(version: 20180211110553) do
     t.float "buy"
     t.float "sell"
     t.float "target"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "btcbch_ma1s", force: :cascade do |t|
+    t.float "last"
+    t.float "buy"
+    t.float "sell"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "btcbch_ma6s", force: :cascade do |t|
+    t.float "last"
+    t.float "buy"
+    t.float "sell"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,6 +119,26 @@ ActiveRecord::Schema.define(version: 20180211110553) do
 
   create_table "trade_datum_ls", force: :cascade do |t|
     t.text "crypto"
+    t.float "units"
+    t.float "target"
+    t.float "btc_equivalent"
+    t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_datum_ma1s", force: :cascade do |t|
+    t.string "crypto"
+    t.float "units"
+    t.float "target"
+    t.float "btc_equivalent"
+    t.float "last"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trade_datum_ma6s", force: :cascade do |t|
+    t.string "crypto"
     t.float "units"
     t.float "target"
     t.float "btc_equivalent"

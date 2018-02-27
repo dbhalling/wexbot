@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crypto: MyString
+  units: 1.5
+  target: 1.5
+  btc_equivalent: 1.5
+  last: 1.5
+
+two:
+  crypto: MyString
+  units: 1.5
+  target: 1.5
+  btc_equivalent: 1.5
+  last: 1.5

@@ -36,6 +36,16 @@ class BacktradeController < ApplicationController
     @trade_data = TradeDatumZ.all
   end
   
+  def bm1
+    @bch_btc_trade = BtcbchMa1.all
+    @trade_data = TradeDatumMa1.all
+  end
+  
+  def bm6
+    @bch_btc_trade = BtcbchMa6.all
+    @trade_data = TradeDatumMa6.all
+  end
+  
   
 
 

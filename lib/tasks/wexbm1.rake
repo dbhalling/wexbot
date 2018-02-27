@@ -1,4 +1,4 @@
-namespace :wextrade do
+namespace :wexbm1 do
   desc "Obtain price and trade"
   task rails: :environment do
     require 'net/http'
@@ -15,13 +15,24 @@ namespace :wextrade do
       return last, buy, sell
     end
       
-    unit = TradeDatum.last.units
-    crypto = TradeDatum.last.crypto
-    target = TradeDatum.last.target
+    unit = TradeDatumMa1.last.units
+    crypto = TradeDatumMa1.last.crypto
+    target = TradeDatumMa1.last.target
     crypto_pairs_array = ["bch_btc"]
     price_array = []
+    
+    #calculates the one hour moving average
+    maarray = BtcbchMa1.all
+    lastpricearray = maarray.collect { |x| x.last }
+    lastpricearray6 =[]
+    lastpricearray6 = lastpricearray.pop(6)
+    sum = 0.0
+    lastpricearray6.each { |x| sum += x }
+    ma1 = sum / 6
+    
+    puts "Moving average is #{ma1}"
 
-    while true
+    #while true
       crypto_pairs_array.each do |c| 
         puts "The Last Buy Sell is #{exchange(c)}"
         puts "Time #{Time.now}"
@@ -37,7 +48,7 @@ namespace :wextrade do
         puts "target is #{target} and last_bch_btc is #{@last_bch_btc}"
       
         #The price is how many bt whether to trade BTC for BCH
-        if @last_bch_btc >= (1.02 * target)
+        if ( @last_bch_btc >= ( 1.02 * target )) and ( @last_bch_btc > ma1 )
           puts "buy bch"
           unit = ((unit/@buy_bch_btc) * 0.998)
           crypto = "BitcoinCash"
@@ -71,7 +82,7 @@ namespace :wextrade do
         end
       end  
       puts "The loop just executed"
-      puts "this is the buy price #{BitcoincashBitcoin.last.buy}"
+      puts "this is the buy price #{BtcbchMa1.last.buy}"
       puts ""
       puts "Your position is #{unit} units of #{crypto}"
       if crypto == "BitcoinCash"
@@ -81,7 +92,7 @@ namespace :wextrade do
       end
       
       
-      TradeDatum.create do |x|
+      TradeDatumMa1.create do |x|
         x.crypto = crypto
         x.units = unit
         x.target = target
@@ -89,15 +100,15 @@ namespace :wextrade do
         x.last = @last_bch_btc
       end
       # puts the price data in the database
-      BitcoincashBitcoin.create do |x|
+      BtcbchMa1.create do |x|
         x.last = @last_bch_btc
         x.buy = @buy_bch_btc
         x.sell = @sell_bch_btc
       end
-      BitcoincashBitcoin.where("created_at < ?", (Time.now - 4.days)).destroy_all
-      TradeDatum.where("created_at < ?", (Time.now - 4.days)).destroy_all
-      sleep(1.minutes)
-    end      
+      BtcbchMa1.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      TradeDatumMa1.where("created_at < ?", (Time.now - 4.days)).destroy_all
+      #sleep(1.minutes)
+    #end      
       
   end
 end 
