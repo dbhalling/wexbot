@@ -130,7 +130,7 @@ end
   end
 end
 
-37.time do  
+37.times do  
   BtcbchMa6.create do |x|
     x.last = 0.1222
     x.buy = 0.1222
