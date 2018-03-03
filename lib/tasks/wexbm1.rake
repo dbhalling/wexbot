@@ -73,7 +73,7 @@ namespace :wexbm1 do
           
         elsif @buy_bch_btc > (target)
           puts "adjust target"
-          target = ((0.5 * target) +(0.5 * @buy_bch_btc))
+          target = ((0.5 * target) + (0.5 * @buy_bch_btc))
           puts "the new target is #{target}"
           puts "Your bitcoin equivalent position is  #{@last_bch_btc * unit}"
         else

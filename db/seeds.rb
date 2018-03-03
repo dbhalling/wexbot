@@ -102,31 +102,38 @@
 #  x.target = 0.0711
 #end
 
-
-TradeDatumMa1.create do |x|
-  x.crypto = 'Bitcoin'
-  x.units = 1.0
-  x.target = 0.1222
-  x.btc_equivalent = 1.0
-  x.last = 0.1222
+7.times do
+  TradeDatumMa1.create do |x|
+    x.crypto = 'Bitcoin'
+    x.units = 1.0
+    x.target = 0.1222
+    x.btc_equivalent = 1.0
+    x.last = 0.1222
+  end
+end
+  
+7.times do
+  BtcbchMa1.create do |x|
+    x.last = 0.1222
+    x.buy = 0.1222
+    x.sell =  0.1222
+  end
 end
 
-BtcbchMa1.create do |x|
-  x.last = 0.1222
-  x.buy = 0.1222
-  x.sell =  0.1222
+37.times do
+  TradeDatumMa6.create do |x|
+    x.crypto = 'Bitcoin'
+    x.units = 1.0
+    x.target = 0.1222
+    x.btc_equivalent = 1.0
+    x.last = 0.1222
+  end
 end
 
-TradeDatumMa6.create do |x|
-  x.crypto = 'Bitcoin'
-  x.units = 1.0
-  x.target = 0.1222
-  x.btc_equivalent = 1.0
-  x.last = 0.1222
-end
-
-BtcbchMa6.create do |x|
-  x.last = 0.1222
-  x.buy = 0.1222
-  x.sell =  0.1222
+37.time do  
+  BtcbchMa6.create do |x|
+    x.last = 0.1222
+    x.buy = 0.1222
+    x.sell =  0.1222
+  end  
 end
