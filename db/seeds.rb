@@ -137,3 +137,21 @@ end
     x.sell =  0.1222
   end  
 end
+
+7.times do
+  TradeDatumUsdm1.create do |x|
+    x.crypto = 'Bitcoin'
+    x.units = 1.0
+    x.target = 8781.0
+    x.btc_equivalent = 1.0
+    x.last = 8781.0
+  end
+end
+
+7.times do
+  Usdma1.create do |x|
+    x.last = 8781.0
+    x.buy = 8781.0
+    x.sell = 8781.0
+  end
+end
