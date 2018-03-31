@@ -14,18 +14,28 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   # For details on connection pooling, see Rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+# 
+# development:
+#   <<: *default
+#   database: wexbot_development
+#   username: dale
+#   password: chinook1
+
+
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
 
 development:
   <<: *default
-  database: wexbot_development
-  username: dale
-  password: chinook1
+  database: db/development.sqlite3
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -82,11 +92,19 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+#production:
+#  <<: *default
+#  database: wexbot_production
+#  username: dale
+#  password: chinook1
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
 production:
   <<: *default
-  database: wexbot_production
-  username: dale
-  password: chinook1
-  
+  database: db/production.sqlite3
+
 #  username: wexbot
 #  password: <%= ENV['WEXBOT_DATABASE_PASSWORD'] %>

@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180325075239) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "bitcoincash_bitcoins", force: :cascade do |t|
     t.float "last"
     t.float "buy"

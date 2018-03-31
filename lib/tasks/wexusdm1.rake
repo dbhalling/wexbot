@@ -50,9 +50,9 @@ namespace :wexusdm1 do
         puts "target is #{target} and last_btc_usd is #{@last_btc_usd}"
       
         #The price is whether to trade BTC for USD
-        if ( @last_btc_usd <= ( 0.98 * target )) and ( @last_btc_usd < ma1 )
+        if ( @last_btc_usd >= ( 0.98 * target )) and ( @last_btc_usd < ma1 )
           puts "buy usd"
-          unit = ((unit/@buy_btc_usd) * 0.998)
+          unit = ((@buy_btc_usd/unit) * 0.998)
           crypto = "USD"
           #This logic adjusts the target if BTC has gained value compared to USD 
         elsif @sell_btc_usd < target
